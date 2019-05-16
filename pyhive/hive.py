@@ -316,7 +316,7 @@ class Cursor(common.DBAPICursor):
                     type_code = ttypes.TTypeId._VALUES_TO_NAMES[ttypes.TTypeId.STRING_TYPE]
                 else:
                     type_id = primary_type_entry.primitiveEntry.type
-                    type_code = ttypes.TTypeId._VALUES_TO_NAMES[type_id]
+                    type_code = ttypes.TTypeId._VALUES_TO_NAMES[type_id if type_id != 22 else 18]
                 self._description.append((
                     col.columnName.decode('utf-8') if sys.version_info[0] == 2 else col.columnName,
                     type_code.decode('utf-8') if sys.version_info[0] == 2 else type_code,
